@@ -1,2 +1,574 @@
-Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2026-02-14 19:50:40
-Current User's Login: lioyd1l
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Love · قطتي 💖</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 100%);
+            color: #660033;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #cc0066;
+            text-shadow: 2px 2px 4px rgba(102, 0, 51, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #99004d;
+            font-weight: normal;
+        }
+
+        .heart-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .heart-divider i {
+            color: #ff0066;
+            margin: 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .heart-divider .line {
+            height: 2px;
+            width: 100px;
+            background-color: #ff66b3;
+        }
+
+        .message-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 50px 30px;
+            box-shadow: 0 15px 35px rgba(204, 0, 102, 0.2);
+            border: 3px solid #ff99cc;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .message-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(204, 0, 102, 0.4);
+        }
+
+        .message-box:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff66b3, #ff0066, #ff66b3);
+            z-index: -1;
+            border-radius: 25px;
+            opacity: 0.5;
+        }
+
+        .main-message {
+            font-family: 'Amiri', serif;
+            font-size: 4rem;
+            color: #cc0066;
+            line-height: 1.3;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(255, 102, 179, 0.3);
+            direction: rtl;
+        }
+
+        .english-translation {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #99004d;
+            margin: 30px 0 40px;
+            font-style: italic;
+        }
+
+        .heart-pulse {
+            animation: pulse 1.5s infinite alternate;
+            color: #ff0066;
+            font-size: 2.5rem;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.3); }
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: #99004d;
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 0, 102, 0.7);
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #ff99cc;
+            overflow: hidden;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 20px rgba(102, 0, 51, 0.2);
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffccdd, #ff99cc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: #ff0066;
+        }
+
+        .instructions {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            pointer-events: none;
+        }
+
+        /* تنسيق الصفحة الثانية (رسالة خاصة) */
+        .second-page {
+            display: none;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 50px rgba(204, 0, 102, 0.3);
+            border: 4px solid #ff99cc;
+            position: relative;
+            z-index: 20;
+            direction: rtl;
+        }
+
+        .second-page h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #cc0066;
+            margin-bottom: 20px;
+        }
+
+        .second-page textarea {
+            width: 100%;
+            height: 250px;
+            padding: 20px;
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            border: 3px solid #ff99cc;
+            border-radius: 20px;
+            background-color: #fff0f7;
+            color: #660033;
+            resize: vertical;
+            margin: 20px 0;
+            outline: none;
+            transition: 0.3s;
+            line-height: 1.6;
+        }
+
+        .second-page textarea:focus {
+            border-color: #ff0066;
+            box-shadow: 0 0 15px #ff99cc;
+        }
+
+        .second-page .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .second-page button {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            padding: 10px 35px;
+            border: none;
+            border-radius: 50px;
+            background-color: #ff66b3;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px #ff99cc;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid #ff99cc;
+        }
+
+        .second-page button:hover {
+            background-color: #ff3388;
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px #ff0066;
+        }
+
+        .back-home {
+            margin-top: 30px;
+            font-size: 1.4rem;
+            color: #99004d;
+            cursor: pointer;
+            display: inline-block;
+            border-bottom: 2px dashed #ff66b3;
+        }
+
+        .back-home:hover {
+            color: #ff0066;
+        }
+
+        .hidden-message-preview {
+            background-color: #ffe6f0;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #99004d;
+            border: 2px solid #ff99cc;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            display: none;
+        }
+
+        .show-preview {
+            display: block;
+        }
+
+        .click-hint {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #b3005c;
+            background-color: rgba(255,255,240,0.7);
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .main-message { font-size: 3rem; }
+            .english-translation { font-size: 1.8rem; }
+            .message-box { padding: 30px 20px; }
+            .second-page textarea { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- الخلفية بالقلوب العائمة -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- الصفحة الرئيسية -->
+    <div class="container" id="page1">
+        <div class="header">
+            <h1>إلى حبيبتي</h1>
+            <p class="subtitle">بعيد المباوتي .. بس ضغطي على القلب 💘</p>
+            
+            <div class="heart-divider">
+                <div class="line"></div>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <div class="line"></div>
+            </div>
+        </div>
+        
+        <div class="photo-frame">
+            <div class="photo-placeholder">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+        
+        <!-- هذا الكارد هو نفسه القلب الكبير اللي إذا انضغط يوجه للصفحة الثانية -->
+        <div class="message-box" id="heartClickArea">
+            <div class="main-message">تكوني قطتي بالفالنتاين ؟</div>
+            
+            <div class="heart-pulse" id="mainHeart">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <div class="english-translation">"Will you be my Valentine?"</div>
+            
+            <div class="heart-divider">
+                <div class="line"></div>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <div class="line"></div>
+            </div>
+            
+            <div class="instructions">
+                <p><i class="fas fa-heart" style="color:#ff0066; margin-left: 8px;"></i> 
+                هاد الموقع الك بس يقطتي الصغنونه
+                </p>
+                <p style="margin-top: 10px;"><i class="fas fa-star" style="color:#ff0066; margin-left: 8px;"></i> 
+                احبك يروحي 
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>سويته بكل حب وعشانك بس يقطتي 💖</p>
+            <p style="margin-top: 10px; font-size: 1rem;">احبجججج</p>
+        </div>
+        
+        <!-- إشارة خفيفة للضغط -->
+        <div class="click-hint">
+            <i class="fas fa-hand-pointer"></i> اضغطي على القلب الكبير رح يودج لرسالتك الخاصة
+        </div>
+    </div>
+
+    <!-- الصفحة الثانية: كتابة الرسالة -->
+    <div class="second-page" id="page2">
+        <h2>✍️ اكتبي رسالتك المخصصة</h2>
+        <p style="font-size: 1.4rem; color: #b3005c;">حبيبتي .. دوبي مايصير تكتبين اللي بقلبك 💕</p>
+        
+        <!-- حقل الكتابة -->
+        <textarea id="loveLetterInput" placeholder="اكتبي هنا رسالتك الحلوة ... مثلاً: أنت عمري ونور عيوني ..."></textarea>
+        
+        <!-- الأزرار -->
+        <div class="button-group">
+            <button id="saveLetterBtn"><i class="fas fa-save"></i> احفظي الرسالة</button>
+            <button id="showPreviewBtn"><i class="fas fa-eye"></i> شوفي الرسالة</button>
+        </div>
+        
+        <!-- مكان عرض الرسالة بعد الحفظ/المعاينة -->
+        <div class="hidden-message-preview" id="messagePreview">
+            <!-- ستظهر الرسالة هنا -->
+        </div>
+
+        <!-- رابط العودة للصفحة الرئيسية -->
+        <div class="back-home" id="backToHome">
+            <i class="fas fa-arrow-right"></i> عودة للصفحة الرئيسية
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 1.2rem; color:#cc0062;">💌 بعد ما تكتبي تقدري ترجعي للصفحة الرئيسية بالضغط على "عودة"</p>
+    </div>
+
+    <script>
+        (function() {
+            // إنشاء القلوب العائمة
+            function createHearts() {
+                const heartsContainer = document.getElementById('heartsContainer');
+                if (!heartsContainer) return;
+                const heartCount = 25;
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    
+                    const size = Math.random() * 20 + 15;
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 4 + 6;
+                    
+                    heart.style.fontSize = `${size}px`;
+                    heart.style.left = `${left}vw`;
+                    heart.style.animationDelay = `${delay}s`;
+                    heart.style.animationDuration = `${duration}s`;
+                    
+                    heartsContainer.appendChild(heart);
+                }
+            }
+
+            // عناصر الصفحات
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const heartClickArea = document.getElementById('heartClickArea'); // منطقة القلب الكبير
+            const backButton = document.getElementById('backToHome');
+            
+            // عناصر الرسالة
+            const loveLetterInput = document.getElementById('loveLetterInput');
+            const saveLetterBtn = document.getElementById('saveLetterBtn');
+            const showPreviewBtn = document.getElementById('showPreviewBtn');
+            const messagePreview = document.getElementById('messagePreview');
+
+            // تبديل الصفحات: من الرئيسية إلى الثانية عند الضغط على القلب
+            if (heartClickArea) {
+                heartClickArea.addEventListener('click', function(e) {
+                    // منع أي فقاعات غير مقصودة (إذا ضغط على رابط داخل الصندوق ما يعمل شي)
+                    // لكن نريد حتى لو ضغط على أي جزء داخل المربع ينتقل
+                    page1.style.display = 'none';
+                    page2.style.display = 'block';
+                    // تغيير خلفية الصفحة بشكل ناعم (اختياري)
+                    document.body.style.background = 'linear-gradient(135deg, #ffb3d9 0%, #ff80bf 100%)';
+                });
+            }
+
+            // العودة للصفحة الرئيسية
+            if (backButton) {
+                backButton.addEventListener('click', function() {
+                    page1.style.display = 'block';
+                    page2.style.display = 'none';
+                    document.body.style.background = 'linear-gradient(135deg, #ffcce6 0%, #ff99cc 100%)';
+                });
+            }
+
+            // حفظ الرسالة (تظهر في المعاينة)
+            if (saveLetterBtn) {
+                saveLetterBtn.addEventListener('click', function() {
+                    const message = loveLetterInput.value.trim();
+                    if (message === '') {
+                        messagePreview.textContent = '❣️ ياقلبي اكتبي شي أول ❣️';
+                    } else {
+                        messagePreview.textContent = '💖 رسالتك المحفوظة: \n\n' + message;
+                    }
+                    messagePreview.classList.add('show-preview');
+                });
+            }
+
+            // عرض فوري للرسالة بدون حفظ (معاينة)
+            if (showPreviewBtn) {
+                showPreviewBtn.addEventListener('click', function() {
+                    const message = loveLetterInput.value.trim();
+                    if (message === '') {
+                        messagePreview.textContent = '📝 اكتبي كلمة حلوة و بعدين اضغطي معاينة';
+                    } else {
+                        messagePreview.textContent = '💬 رسالتك: \n\n' + message;
+                    }
+                    messagePreview.classList.add('show-preview');
+                });
+            }
+
+            // التأثير النابض على القلب الرئيسي وتبديل الألوان عند الضغط (من النسخة القديمة مع الحفاظ على الوظيفة)
+            document.addEventListener('click', function(e) {
+                // التحقق إذا الضغط كان على القلب الكبير (الآيكونة) أو على أي جزء من منطقة القلب
+                if (e.target.closest('.heart-pulse') || e.target.closest('.photo-placeholder')) {
+                    const heartsIcons = document.querySelectorAll('.heart-pulse i, .photo-placeholder i');
+                    const colors = ['#ff0066', '#ff66b3', '#cc0066', '#ff3399', '#ff99cc'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    heartsIcons.forEach(heart => {
+                        heart.style.color = randomColor;
+                    });
+                    
+                    const mainMessage = document.querySelector('.main-message');
+                    if (mainMessage) {
+                        const originalColor = mainMessage.style.color;
+                        mainMessage.style.color = randomColor;
+                        setTimeout(() => {
+                            mainMessage.style.color = originalColor || '#cc0066';
+                        }, 1000);
+                    }
+                }
+            });
+
+            // نبض الرسالة النصية (تكبير وتصغير خفيف)
+            function pulseMessage() {
+                const message = document.querySelector('.main-message');
+                if (!message) return;
+                let scale = 1;
+                let direction = 0.001;
+                function animate() {
+                    scale += direction;
+                    if (scale > 1.05) direction = -0.001;
+                    if (scale < 1) direction = 0.001;
+                    message.style.transform = `scale(${scale})`;
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }
+
+            // كل شيء بعد تحميل الصفحة
+            window.addEventListener('load', function() {
+                createHearts();
+                pulseMessage();
+                
+                // نخفي الصفحة الثانية أول ما تتحمل الصفحة
+                page2.style.display = 'none';
+                
+                console.log("%c❤️ إلى حبيبتي: تكوني قطتي بالفالنتاين؟ ❤️", "color: #ff0066; font-size: 18px;");
+                console.log("%c هذا الموقع صار فيه صفحة ثانية للرسالة.", "color: #99004d;");
+            });
+
+            // إعادة تعيين إذا غير المستخدم حجم الشاشة (مافي داعي)
+        })();
+    </script>
+</body>
+</html>
